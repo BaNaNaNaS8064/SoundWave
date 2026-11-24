@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../BDD.php'; 
+
 class PisteModele
 {
     public function dernieresPistes()

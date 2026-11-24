@@ -1,8 +1,7 @@
 <?php
 
-class BDD 
+abstract class BDD 
 {
-    
    private static $instance = null; 
    public static function getConnexion()
    {
