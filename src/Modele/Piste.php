@@ -8,8 +8,8 @@ class Piste{
 	private int $nombre_ecoutes;
 	private string $nom_genre;
 	private string $date_publication;
-	private string $nom_artiste;
-	private string $nom_groupe;
+	private ?string $nom_artiste;
+	private ?string $nom_groupe;
 
 	public function __construct(int $id, string $titre, string $description, int $fichier_audio, int $nombre_ecoutes, string $nom_genre, string $date_publication, ?string $nom_artiste, ?string $nom_groupe)
 	{
@@ -46,9 +46,9 @@ class Piste{
 		return $this->date_publication;
 	}
 	public function getNom_artiste(): ?string {
-		return $this->id_piste;
+		return $this->nom_artiste;
 	}
 	public function getNom_groupe(): ?string {
-		return $this->id_piste;
+		return $this->nom_groupe;
 	}
 }
