@@ -3,7 +3,7 @@
 class Piste{
 	private int $id_piste;
 	private string $titre;
-	private string $description;
+	private ?string $description;
 	private string $fichier_audio;
 	private int $nombre_ecoutes;
 	private string $nom_genre;
@@ -11,7 +11,7 @@ class Piste{
 	private ?string $nom_artiste;
 	private ?string $nom_groupe;
 
-	public function __construct(int $id, string $titre, string $description, int $fichier_audio, int $nombre_ecoutes, string $nom_genre, string $date_publication, ?string $nom_artiste, ?string $nom_groupe)
+	public function __construct(int $id, string $titre, ?string $description, int $fichier_audio, int $nombre_ecoutes, string $nom_genre, string $date_publication, ?string $nom_artiste, ?string $nom_groupe)
 	{
 		$this->id_piste = $id;
 		$this->titre = $titre;
@@ -24,13 +24,17 @@ class Piste{
 		$this->nom_groupe = $nom_groupe;
 	}
 
+	public static function origin(array $pisteArray): self {
+        return new self($pisteArray["id"], $pisteArray["titre"], $pisteArray["description"], $pisteArray["fichier_audio"], $pisteArray["nombre_ecoutes"], $pisteArray["nom_genre"], $pisteArray["date_publication"], $pisteArray["nom_artiste"], $pisteArray["nom_groupe"]);
+    }
+
 	public function getId_piste(): int {
 		return $this->id_piste;
 	}
 	public function getTitre(): string {
 		return $this->titre;
 	}
-	public function getDescription(): string {
+	public function getDescription(): ?string {
 		return $this->description;
 	}
 	public function getFichier_audio(): string {
